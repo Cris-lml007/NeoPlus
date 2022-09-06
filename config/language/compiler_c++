@@ -1,0 +1,24 @@
+#!/bin/bash
+a=$4
+if [[ -e "$2" ]]; then
+	rm $2
+fi
+if [[ -e "$1" && -e "$5" && -e "$6" ]]; then
+	g++ -o $2 $(mysql_config --cflags) $3 -$(mysql_config --libs) -lsfml-graphics -lsfml-system -lsfml-audio -lsfml-window -lsqlite3
+elif [[ -e "$5" ]];then
+	g++ -o $2 $(mysql_config --cflags) $3 $(mysql_config --libs)
+elif [[ -e "$1" ]];then
+	g++ -o $2 $3 -lsfml-graphics -lsfml-system -lsfml-audio -lsfml-window
+elif [[ -e "$6" && -e "$1" ]];then
+	g++ -o $2 $3 -lsfml-graphics -lsfml-system -lsfml-audio -lsfml-window -lsqlite3
+elif [[ -e "$5" && -e "$6" ]];then
+	g++ -o $2 $(mysql_config --cflags) $3 $(mysql_config --libs) -lsqlite3
+elif [[ -e "$6" ]];then
+	g++ -o $2 $3 -lsqlite3
+else
+	g++ -o $2 $3
+fi
+
+if [[ $4 == 1 ]]; then
+	./$2
+fi
