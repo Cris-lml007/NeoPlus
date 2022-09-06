@@ -118,6 +118,14 @@ mapping = cmp.mapping.preset.insert({
 					end
 				end
 				),
+	['<S-TAB>'] = cmp.mapping(function(fallback)
+					if cmp.visible() then 
+						cmp.select_prev_item()
+					else
+						cmp.complete()
+					end
+				end
+				),
 	['<C-Space>'] = cmp.mapping.complete(),
 	['<C-e>'] = cmp.mapping.abort(),
 	['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
