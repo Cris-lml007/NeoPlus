@@ -84,4 +84,4 @@ require('nightfox').setup({
 vim.g.material_style = "deep ocean"
 END
 
-colorscheme tokyonight
+colorscheme tokyonight-night

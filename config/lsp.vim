@@ -27,6 +27,13 @@ silent! nunmap <silent> gy
 silent! nunmap <silent> gi
 silent! nunmap <silent> gr
 
+
+if has('nvim')
+  inoremap <silent><expr> <c-b> coc#refresh()
+else
+  inoremap <silent><expr> <c-b> coc#refresh()
+endif
+
 "------------------------------
 
 set completeopt=menu,menuone,noselect

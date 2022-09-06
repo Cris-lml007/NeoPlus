@@ -61,6 +61,7 @@ Plug 'stevearc/aerial.nvim'
 Plug 'mbbill/undotree'
 "colores hexadesimales
 Plug 'chrisbra/colorizer'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " buscador de palabras
 Plug 'easymotion/vim-easymotion'
 "exlorador de archivos modo arbol
@@ -116,6 +117,9 @@ Plug 'hrsh7th/cmp-cmdline'
 "snipers
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 "-----------------------------
 call plug#end()
 "------------Plugins config-----------------------

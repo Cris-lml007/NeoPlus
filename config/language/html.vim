@@ -7,6 +7,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
 END
 let g:bracey_refresh_on_save=1
 let g:bracey_eval_on_save=1
@@ -15,5 +18,3 @@ let g:bracey_auto_start_server=1
 nmap <F9> :Bracey<CR>
 "recargar servidor
 nmap <F10> :BraceyReload<CR>
-
-
