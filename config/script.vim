@@ -21,3 +21,4 @@ function! ProjectJava()
 endfunction
 
 command! ProjectJava call ProjectJava()
+

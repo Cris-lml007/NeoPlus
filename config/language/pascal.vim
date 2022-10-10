@@ -106,7 +106,9 @@ require("indent_blankline").setup {
         "IndentBlanklineIndent6",
     },
 }
-
+require'lspconfig'.pasls.setup{
+cmd={"/home/metallica/Recibidos/pascal-language-server-May-30-2022-x86_64-darwin/lib/x86_64-linux/pasls"}
+}
 END
 
 "Accesos directos

@@ -139,7 +139,7 @@ mapping = cmp.mapping.preset.insert({
 }),
 	sources = cmp.config.sources({
 	{ name = 'nvim_lsp' },{name = 'path'},
-	{ name = 'vsnip' }, -- For vsnip users.
+	--{ name = 'vsnip' }, -- For vsnip users.
 	{ name = 'luasnip' }, -- For luasnip users.
 	-- { name = 'ultisnips' }, -- For ultisnips users.
 	-- { name = 'snippy' }, -- For snippy users.
@@ -157,20 +157,20 @@ cmp.setup.filetype('gitcommit', {
 })
 
 -- use cmdline & path source para ':' (si activó el `menú nativo`, esto ya no funcionará).
-cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-	{ name = 'path' }
-	},{
-	{name = 'buffer'}
-	},{
-	{name = 'nvim_lsp'}
-	},{
-	{name= 'nvim_lua'}
-	}, {
-	{ name = 'cmdline' }
-	})
-})
+--cmp.setup.cmdline(':', {
+--	mapping = cmp.mapping.preset.cmdline(),
+--	sources = cmp.config.sources({
+--	{ name = 'path' }
+--	},{
+--	{name = 'buffer'}
+--	},{
+--	{name = 'nvim_lsp'}
+--	},{
+--	{name= 'nvim_lua'}
+--	}, {
+--	{ name = 'cmdline' }
+--	})
+--})
 ---------------------------------------------------------------------------------
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -179,7 +179,5 @@ cmp.setup.cmdline(':', {
   --	  capabilities = capabilities
   --	  }
 
-
-
-
+--vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 END

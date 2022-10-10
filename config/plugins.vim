@@ -11,6 +11,7 @@ filetype plugin indent on    " required
 lua << EOF
 	require('packer').startup(function()
 		use { "nvim-telescope/telescope-file-browser.nvim" }
+		use 'nvim-telescope/telescope-project.nvim'
 		use 'wbthomason/packer.nvim'
 		---optimizador lua
 		use 'lewis6991/impatient.nvim'
@@ -21,6 +22,19 @@ lua << EOF
 			config = function()
 			require"startup".setup()
 			end
+		}
+		use {
+		  'chipsenkbeil/distant.nvim',
+		  config = function()
+			require('distant').setup {
+			  -- Applies Chip's personal settings to every machine you connect to
+			  --
+			  -- 1. Ensures that distant servers terminate with no connections
+			  -- 2. Provides navigation bindings for remote directories
+			  -- 3. Provides keybinding to jump into a remote file's parent directory
+			  ['*'] = require('distant.settings').chip_default()
+			}
+		  end
 		}
 	end)
 	require"startup".setup({theme = "dashboard"})
@@ -88,6 +102,7 @@ Plug 'segeljakt/vim-silicon'
 Plug 'voldikss/vim-floaterm'
 "Mejor identado treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 "sintaxis
 "Plug 'scrooloose/syntastic'
 "mostrar marcas
@@ -104,7 +119,7 @@ Plug 'puremourning/vimspector'
 "tranparencia a los temas
 Plug 'xiyaowong/nvim-transparent'
 "gestor de proyectos
-"Plug 'ahmedkhalf/project.nvim'
+Plug 'ahmedkhalf/project.nvim'
 "-----------LSP----------------
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
@@ -145,10 +160,18 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+	sync_root_with_cwd = true,
+	respect_buf_cwd = true,
+	update_focused_file = {
+		enable = true,
+		update_root = true 
+	},
   },
 }
 require("telescope").load_extension "file_browser"
+require'telescope'.load_extension('project')
 require("aerial").setup({})
+require('telescope').load_extension('projects')
+require("project_nvim").setup{}
 END
-
 "******************************************************************+

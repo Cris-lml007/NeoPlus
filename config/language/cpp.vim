@@ -1,8 +1,8 @@
 "----------------------------C++---------------------------
 "compilar y correr C++ (para uso de sfml usar comando SFML primero)
-nmap <F9> :w<CR>:sp term://bash /home/metallica/.vim/vimrc/compiler_c++ ./.%<.sh %< % 1 ./.%<_database.sh ./.%<_sqlite.sh<CR>a
+nmap <F9> :w<CR>:sp term://bash ~/.vim/vimrc/compiler_c++ ./.%<.sh %< % 1 ./.%<_database.sh ./.%<_sqlite.sh<CR>a
 "Depurador C++
-nmap <F10> :w<CR>:sp term://bash /home/metallica/.vim/vimrc/compiler_c++ ./.%<.sh %< % 0 ./.%<_database.sh ./.%<_sqlite.sh<CR>a
+nmap <F10> :w<CR>:sp term://bash ~/.vim/vimrc/compiler_c++ ./.%<.sh %< % 0 ./.%<_database.sh ./.%<_sqlite.sh<CR>a
 "SFML
 nmap <leader>sf :!rm %< <CR> :!echo 'g++ -o %< % -lsfml-graphics -lsfml-system -lsfml-audio -lsfml-window' > .%<.sh <CR>:!chmod +x .%<.sh<CR>:!bash ./.%<.sh <CR> :sp term:// ./%< <CR>a
 "MYSQL

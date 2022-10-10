@@ -18,7 +18,7 @@ nmap <silent>& :bn <CR>
 nmap <silent>$ :bp <CR>
 "cerrar buffer
 nmap<C-w> :delmarks!<CR>:bd <CR>
-nmap <silent>5 :delmarks!<CR>:bd <CR>
+nmap <leader>5 :delmarks!<CR>:bd <CR>
 "mover linea hacia abajo y arriba
 nmap <C-down> :m +1 <CR>
 nmap <C-up> :m -2 <CR>
@@ -37,6 +37,7 @@ nmap <silent>r :redo<CR>
 "quitar recorrido de carro
 nmap <leader>} :%s///g <CR>
 "--------------------Plugins---------------------------
+nmap <leader>" :FloatermNew ncmpcpp <CR>
 "abrir arbol de cambios
 nmap <leader><C-z> :UndotreeShow<CR> :TmuxNavigateLeft<CR>
 "acceso para usar el desplazador por palabra
@@ -112,6 +113,8 @@ endfunction
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " símbolos del espacio de trabajo de búsqueda.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"acciones de codigo/correcciones
+nmap <leader>c  <Plug>(coc-codeaction)
 
 "reemplazar
 nmap <leader>rn <Plug>(coc-rename)

@@ -10,7 +10,7 @@ source ~/.config/nvim/config/map.vim
 source ~/.config/nvim/config/script.vim
 "----------configuraciones indepentientes por lenguaje------------
 "configuracion para vim
-autocmd FileType vim nested :source ~/.config/nvim/config/language/vim.vim
+"autocmd FileType vim nested :source ~/.config/nvim/config/language/vim.vim
 "configuracion para C++
 autocmd FileType cpp nested :source ~/.config/nvim/config/language/cpp.vim
 "configuracion para pascal

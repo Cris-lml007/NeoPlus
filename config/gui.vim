@@ -46,14 +46,14 @@ require("indent_blankline").setup {
 require("bufferline").setup{
 	highlights ={
 		fill = {
-			--guifg = '#272930',
-			--guibg = '#2d362f',
+			--fg = '#272930',
+			--bg = '#2d362f',
 		},
 	};
 }
 
 require('lualine').setup{
---options = { theme = 'codedark' },
+	--options = { theme = 'codedark' },
 }
 
 require("nvim-web-devicons").set_icon {
