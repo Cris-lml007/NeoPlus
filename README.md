@@ -29,6 +29,7 @@ This es an secuence de config and plugins that do easy use to Neovim, with short
 - Vimspector
 - Suda
 - Vim-Tmux
+- more
 # Themes
 - TokyoNight
 - Gruvbox
