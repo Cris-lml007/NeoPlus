@@ -36,6 +36,12 @@ lua << EOF
 			}
 		  end
 		}
+		--previsualizar markdown
+		use({
+			"iamcco/markdown-preview.nvim",
+			run = function() vim.fn["mkdp#util#install"]() end,
+		})
+		use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	end)
 	require"startup".setup({theme = "dashboard"})
 EOF
@@ -136,6 +142,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 "-----------------------------
+"probador de casos
+Plug 'Cris-lml007/test.vim'
 call plug#end()
 "------------Plugins config-----------------------
 """ configuración traductor
@@ -147,6 +155,8 @@ let NERDTreeQuitOnOpen = 1
 "hi FloatermBorder guifg=white guibg=red
 "poner un punto si un archivo no esta guardado
 let g:lightline#bufferline#modified = ' ●'
+"color de fondo de Markdown-Preview
+let g:mkdp_theme = 'dark'
 "configuracion de complementos lua
 lua << END
 require('impatient')

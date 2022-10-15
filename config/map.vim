@@ -13,9 +13,11 @@ nmap<C-a> :delmarks!<CR>:wq<CR>
 "guardar archivos que requieren acceso root
 nmap <C-R> :SudaWrite <CR>:q!<CR>
 "cambiar buffer hacia adelante
-nmap <silent>& :bn <CR>
+"nmap <silent>& :bn <CR>
+nmap <TAB> :bn <CR>
 "cambiar buffer hacia atras
-nmap <silent>$ :bp <CR>
+"nmap <silent>$ :bp <CR>
+nmap <S-TAB> :bp <CR>
 "cerrar buffer
 nmap<C-w> :delmarks!<CR>:bd <CR>
 nmap <leader>5 :delmarks!<CR>:bd <CR>
@@ -37,6 +39,8 @@ nmap <silent>r :redo<CR>
 "quitar recorrido de carro
 nmap <leader>} :%s///g <CR>
 "--------------------Plugins---------------------------
+"abrir lazygit en floaterm
+nmap <leader>g :FloatermNew ~/go/bin/lazygit <CR>
 nmap <leader>" :FloatermNew ncmpcpp <CR>
 "abrir arbol de cambios
 nmap <leader><C-z> :UndotreeShow<CR> :TmuxNavigateLeft<CR>
