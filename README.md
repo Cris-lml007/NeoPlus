@@ -84,6 +84,6 @@ review the file of mapping for learn more. (~/.config/nvim/config/map.vim).
 ○ execute Haskell  
 <br><img src="https://user-images.githubusercontent.com/83845332/194946073-d0a9e2f9-59f2-4b60-82ec-32f64cd568da.png"><br>
 ○ Testing Cases
-<br><img src="https://user-images.githubusercontent.com/83845332/194946073-d0a9e2f9-59f2-4b60-82ec-32f64cd568da.png"><br>
+<br><img src="https://user-images.githubusercontent.com/83845332/195995197-cedb632c-e660-4358-b4f8-5152c1f99895.png"><br>
 </details>  
 
