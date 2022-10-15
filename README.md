@@ -36,6 +36,7 @@ This es an secuence de config and plugins that do easy use to Neovim, with short
 - Vimspector
 - Suda
 - Vim-Tmux
+- test.vim
 - more
 # 🌈 Themes
 - TokyoNight
@@ -81,6 +82,8 @@ review the file of mapping for learn more. (~/.config/nvim/config/map.vim).
 ○ Rename  
 <br><img src="https://user-images.githubusercontent.com/83845332/194934541-d7889831-abf7-43fc-94fb-9e0942fd3e8a.png"><br>
 ○ execute Haskell  
+<br><img src="https://user-images.githubusercontent.com/83845332/194946073-d0a9e2f9-59f2-4b60-82ec-32f64cd568da.png"><br>
+○ Testing Cases
 <br><img src="https://user-images.githubusercontent.com/83845332/194946073-d0a9e2f9-59f2-4b60-82ec-32f64cd568da.png"><br>
 </details>  
 
