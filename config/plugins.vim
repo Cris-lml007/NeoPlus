@@ -76,7 +76,7 @@ Plug 'wfxr/minimap.vim'
 Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "Plugin que muestra propiedades de una function
 Plug 'majutsushi/tagbar'
-Plug 'stevearc/aerial.nvim'
+"Plug 'stevearc/aerial.nvim'
 "arbol de movimientos
 Plug 'mbbill/undotree'
 "colores hexadesimales
@@ -144,8 +144,14 @@ Plug 'hrsh7th/vim-vsnip'
 "-----------------------------
 "probador de casos
 Plug 'Cris-lml007/test.vim'
+"manager database
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'tpope/vim-dadbod'
+"nomodoro
+Plug 'dbinagi/nomodoro'
 call plug#end()
 "------------Plugins config-----------------------
+
 """ configuración traductor
 let g:translator_target_lang="ES"
 let g:translator_default_engines=['google']
@@ -157,6 +163,34 @@ let NERDTreeQuitOnOpen = 1
 let g:lightline#bufferline#modified = ' ●'
 "color de fondo de Markdown-Preview
 let g:mkdp_theme = 'dark'
+
+let g:db_ui_icons = {
+			\ 'expanded': {
+		 	\   'db': '▾ ',
+		 	\   'buffers': '▾ ',
+		 	\   'saved_queries': '▾ ',
+		 	\   'schemas': '▾ ',
+		 	\   'schema': '▾ פּ',
+		 	\   'tables': '▾ 藺',
+		 	\   'table': '▾ ',
+		 	\ },
+		 	\ 'collapsed': {
+		 	\   'db': '▸ ',
+		 	\   'buffers': '▸ ',
+		 	\   'saved_queries': '▸ ',
+		 	\   'schemas': '▸ ',
+		 	\   'schema': '▸ פּ',
+		 	\   'tables': '▸ 藺',
+		 	\   'table': '▸ ',
+		 	\ },
+		 	\ 'saved_query': '',
+		 	\ 'new_query': '璘',
+		 	\ 'tables': '離',
+		 	\ 'buffers': '﬘',
+		 	\ 'add_connection': '',
+		 	\ 'connection_ok': '✓',
+		 	\ 'connection_error': '✕',
+			\}
 "configuracion de complementos lua
 lua << END
 require('impatient')
@@ -180,8 +214,31 @@ require'nvim-treesitter.configs'.setup {
 }
 require("telescope").load_extension "file_browser"
 require'telescope'.load_extension('project')
-require("aerial").setup({})
+--require("aerial").setup({})
 require('telescope').load_extension('projects')
 require("project_nvim").setup{}
+--configuracion de nomodoro
+require('nomodoro').setup({
+    work_time = 25,
+    break_time = 5,
+    menu_available = true,
+    texts = {
+        on_break_complete = "TIME WORK!",
+        on_work_complete = "TAKE A BREAK!",
+        status_icon = "羽",
+        timer_format = '!%0M:%0S' -- To include hours: '!%0H:%0M:%0S'
+    },
+    on_work_complete = function() end,
+    on_break_complete = function() end
+})
+local lualine = require'lualine'
+lualine.setup({
+    sections = {
+        lualine_x = {
+			require('nomodoro').status,
+			'encoding', 'fileformat', 'filetype'
+        }
+    }
+})
 END
 "******************************************************************+
