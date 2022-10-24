@@ -38,13 +38,14 @@ endif
 
 set completeopt=menu,menuone,noselect
 lua << END
-
+--configuracion del diagnostico
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+--instalador de lsp language
 require("nvim-lsp-installer").setup({
 automatic_installation = true,
 ui = {
@@ -59,6 +60,7 @@ ui = {
 
 ---------CONFIGURACION DE TECLAS DE AUTOCOMPLETADO, PARECIDO A COC.NVIM
 local cmp = require'cmp'
+local luasnip = require 'luasnip'
 
 cmp.setup({
 formatting = {
@@ -107,7 +109,7 @@ formatting = {
 snippet = {
 	expand = function(args)
 	vim.fn["vsnip#anonymous"](args.body)
-	require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+	--require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 	-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
 	-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 	end,
@@ -120,6 +122,8 @@ mapping = cmp.mapping.preset.insert({
 	['<TAB>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then 
 						cmp.select_next_item()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
 					else
 						cmp.complete()
 					end
@@ -139,8 +143,8 @@ mapping = cmp.mapping.preset.insert({
 }),
 	sources = cmp.config.sources({
 	{ name = 'nvim_lsp' },{name = 'path'},
-	--{ name = 'vsnip' }, -- For vsnip users.
-	{ name = 'luasnip' }, -- For luasnip users.
+	{ name = 'vsnip' }, -- For vsnip users.
+	--{ name = 'luasnip' }, -- For luasnip users.
 	-- { name = 'ultisnips' }, -- For ultisnips users.
 	-- { name = 'snippy' }, -- For snippy users.
 	}, {
@@ -180,4 +184,84 @@ cmp.setup.filetype('gitcommit', {
   --	  }
 
 --vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+
+--MAPEOS
+--mostrar documentacion
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+--mostrar definicion
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+--mostrar implementation
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+--mostrar tipo de declaracion
+vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
+--acciones de codigo/correcciones
+vim.keymap.set('n', '<space>c', vim.lsp.buf.code_action, bufopts)
+--referencias
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+--renombrar variable
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+
+require('dressing').setup({
+  input = {
+    -- Set to false to disable the vim.ui.input implementation
+    enabled = true,
+
+    -- Default prompt string
+    default_prompt = "Input:",
+
+    -- Can be 'left', 'right', or 'center'
+    prompt_align = "left",
+
+    -- When true, <Esc> will close the modal
+    insert_only = true,
+
+    -- When true, input will start in insert mode.
+    start_in_insert = true,
+
+    -- These are passed to nvim_open_win
+    anchor = "SW",
+    border = "rounded",
+    -- 'editor' and 'win' will default to being centered
+    relative = "cursor",
+
+    -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+    prefer_width = 40,
+    width = nil,
+    -- min_width and max_width can be a list of mixed types.
+    -- min_width = {20, 0.2} means "the greater of 20 columns or 20% of total"
+    max_width = { 140, 0.9 },
+    min_width = { 20, 0.2 },
+
+    -- Window transparency (0-100)
+    winblend = 10,
+    -- Change default highlight groups (see :help winhl)
+    winhighlight = "",
+
+    -- Set to `false` to disable
+    mappings = {
+      n = {
+        ["<Esc>"] = "Close",
+        ["<CR>"] = "Confirm",
+      },
+      i = {
+        ["<C-c>"] = "Close",
+        ["<CR>"] = "Confirm",
+        ["<Up>"] = "HistoryPrev",
+        ["<Down>"] = "HistoryNext",
+      },
+    },
+
+    override = function(conf)
+      -- This is the config that will be passed to nvim_open_win.
+      -- Change values here to customize the layout
+      return conf
+    end,
+
+    -- see :help dressing_get_config
+    get_config = nil,
+  }
+})
 END
+
+"coleccion de snipers
+let g:vsnip_filetypes.ruby = ['rails']

@@ -1,3 +1,5 @@
+"directorio de configuracion de LSP:
+" ~/.config/nvim/config/lsp.vim
 "configuraciones globales
 source ~/.config/nvim/config/global.vim
 "Plugins

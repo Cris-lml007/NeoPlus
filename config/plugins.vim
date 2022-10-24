@@ -42,6 +42,7 @@ lua << EOF
 			run = function() vim.fn["mkdp#util#install"]() end,
 		})
 		use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+		--cambiar variable
 	end)
 	require"startup".setup({theme = "dashboard"})
 EOF
@@ -135,12 +136,19 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-"snipers
+"engine snippet
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+"diseñador ui
+Plug 'stevearc/dressing.nvim'
+"-----------------------------
+"coleccion de snippet
+Plug 'rafamadriz/friendly-snippets'
+"snippet unity
+Plug 'kleber-swf/vscode-unity-code-snippets'
 "-----------------------------
 "probador de casos
 Plug 'Cris-lml007/test.vim'
@@ -149,6 +157,9 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'tpope/vim-dadbod'
 "nomodoro
 Plug 'dbinagi/nomodoro'
+"autocompletado para c#
+"Plug 'OmniSharp/omnisharp-vim'
+""Plug 'dense-analysis/ale'
 call plug#end()
 "------------Plugins config-----------------------
 
@@ -163,7 +174,10 @@ let NERDTreeQuitOnOpen = 1
 let g:lightline#bufferline#modified = ' ●'
 "color de fondo de Markdown-Preview
 let g:mkdp_theme = 'dark'
+"bracey-connexion de varios equipos
+let g:bracey_server_allow_remote_connections = 1
 
+"iconos para dadbod
 let g:db_ui_icons = {
 			\ 'expanded': {
 		 	\   'db': '▾ ',

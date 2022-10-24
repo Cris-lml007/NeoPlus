@@ -1,27 +1,3 @@
-"call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'morhetz/gruvbox'
-""C#
-""Plug 'OmniSharp/omnisharp-vim'
-""Plug 'dense-analysis/ale'
-""-----------LSP----------------
-"Plug 'williamboman/nvim-lsp-installer'
-"Plug 'neovim/nvim-lspconfig'
-""autocompletado
-"Plug 'hrsh7th/nvim-cmp'
-"Plug 'hrsh7th/cmp-nvim-lsp'
-"Plug 'hrsh7th/cmp-buffer'
-"Plug 'hrsh7th/cmp-path'
-"Plug 'hrsh7th/cmp-cmdline'
-""snipers
-"Plug 'L3MON4D3/LuaSnip'
-"Plug 'saadparwaiz1/cmp_luasnip'
-""-----------------------------
-"
-"Plug 'nvim-lua/plenary.nvim'
-""Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
-"Plug 'stevearc/dressing.nvim'
-"call plug#end()
-
 source ~/.config/nvim/config/lsp.vim
 lua << END
 
