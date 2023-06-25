@@ -1,9 +1,18 @@
 {
+	"coc.preferences.enableMessageDialog":true,
 	"suggest.noselect": true,
 	"diagnostic.errorSign": "✘",
 	"diagnostic.hintSign":"",
-	"diagnostic.infoSign":"",
+	"diagnostic.infoSign":"",
 	"languageserver": {
+		"intelephense": {
+			"command": "intelephense",
+			"args": ["--stdio"],
+			"filetypes": ["php"],
+			"initializationOptions": {
+				"storagePath": "/tmp/intelephense"
+			}
+		},
 		"haskell": {
 			"command": "haskell-language-server-wrapper",
 			"args": [
@@ -22,45 +31,58 @@
 				"haskell"
 			]
 		},
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"]
+		"efm": {
+			"command": "~/go/bin/efm-langserver",
+			"args": [],
+			"filetypes": ["vim", "eruby", "markdown", "yaml"]
 		},
-    	"efm": {
-    		"command": "~/go/bin/efm-langserver",
-    		"args": [],
-    		"filetypes": ["vim", "eruby", "markdown", "yaml"]
+		"godot": {
+			"host": "127.0.0.1",
+			"filetypes": ["gd", "gdscript", "gdscript3"],
+			"port": 6008
+		},
+		"csharp": {
+			"command": "~/.dotnet/tools/csharp-ls",
+			"rootPatterns": [
+				"*.csproj",
+				"*.sln",
+				"git"
+			],
+			"filetypes": ["cs", "csharp"]
 		}
 	},
 	"suggest.completionItemKindLabels": {
-                "text" : "",
-                "method" : "",
-                "function" : "",
-                "constructor" : "",
-                "field" : "ﰠ",
-                "variable" : "",
-                "class" : "ﴯ",
-                "interface" : "",
-                "module" : "",
-                "property" : "ﰠ",
-                "unit" : "塞",
-                "value" : "",
-                "enum" : "",
-                "keyword" : "",
-                "snippet" : "",
-                "color" : "",
-                "file" : "",
-                "reference" : "",
-                "folder" : "",
-                "constant" : "",
-                "struct" : "פּ",
-                "event" : "",
-                "operator" : "",
-				"default": "\uf29c"
-  },
-  "Lua.telemetry.enable":false,
-  "java.completion.maxResults":100,
-  "java.errors.incompleteClasspath.severity": "ignore",
-  "java.format.settings.url": "/home/metallica/.config/coc/extensions/node_modules/redhat.java/home/metallica/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+		"text" : "󰊄",
+		"method" : "",
+		"function" : "󰊕",
+		"constructor" : "",
+		"field" : "",
+		"variable" : "󰀫",
+		"class" : "",
+		"interface" : "",
+		"module" : "",
+		"property" : "",
+		"unit" : "",
+		"value" : "󰎠",
+		"enum" : "",
+		"keyword" : "󰌋",
+		"snippet" : "",
+		"color" : "",
+		"file" : "",
+		"reference" : "",
+		"folder" : "",
+		"constant" : "",
+		"struct" : "",
+		"event" : "",
+		"operator" : "",
+		"default": "\uf29c"
+	},
+	"java.completion.maxResults":100,
+	"java.errors.incompleteClasspath.severity": "ignore",
+	"java.format.settings.url": "/home/metallica/.config/coc/extensions/node_modules/redhat.java/home/metallica/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+	"xml.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+	"snippets.extends": {
+		"php":["html","css","blade"]
+	},
+	"diagnostic.messageDelay": 1
 }
