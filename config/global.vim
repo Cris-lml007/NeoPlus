@@ -52,7 +52,6 @@ filetype off
 set wildmenu
 "muestra todas la sugerencias en texto plano
 "set wildmode=list:longest,full
-"
 "###REANUDA LA APERTURA DESDE EL PUNTO ANTERIOR
     autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
