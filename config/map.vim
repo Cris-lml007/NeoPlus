@@ -2,6 +2,8 @@
 "TECLA LIDER
 let mapleader=" "
 "----------navegacion-----------------
+"tecla macros
+nnoremap <leader>Q q
 "acceso para salir
 nmap q :delmarks!<CR>:q<CR>
 "acceso para salir forzado
@@ -13,17 +15,22 @@ nmap<C-a> :delmarks!<CR>:wq<CR>
 "guardar archivos que requieren acceso root
 nmap <C-R> :SudaWrite <CR>:q!<CR>
 "cambiar buffer hacia adelante
-"nmap <silent>& :bn <CR>
+nmap <silent>& :bn <CR>
 nmap <TAB> :bn <CR>
 "cambiar buffer hacia atras
-"nmap <silent>$ :bp <CR>
+nmap <silent>$ :bp <CR>
 nmap <S-TAB> :bp <CR>
 "cerrar buffer
 nmap<C-w> :delmarks!<CR>:bd <CR>
 nmap <leader>5 :delmarks!<CR>:bd <CR>
-"mover linea hacia abajo y arriba
+"cerrar buffer forzado (sin guardar)
+nmap <Leader>w :bdelete!<CR>
+"mover linea hacia abajo y arriba modo normal
 nmap <C-down> :m +1 <CR>
 nmap <C-up> :m -2 <CR>
+"mover linea hacia abajo y arriba modo visual
+vnoremap <C-down> :m '>+1<CR>gv=gv
+vnoremap <C-up> :m '<-2<CR>gv=gv
 "Accesos directos para usar el plugin de Tmux
 nmap <leader><left> :TmuxNavigateLeft<CR>
 nmap <leader><right> :TmuxNavigateRight<CR>
@@ -45,10 +52,13 @@ nmap <leader>" :FloatermNew ncmpcpp <CR>
 "abrir arbol de cambios
 nmap <leader><C-z> :UndotreeShow<CR> :TmuxNavigateLeft<CR>
 "acceso para usar el desplazador por palabra
-nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>S <Plug>(easymotion-s2)
 "acceso para usar el explorador de archivos
 "nmap <Leader>ñ :NERDTreeFind<CR>
-nmap <Leader>ñ :NERDTreeToggle<CR>
+"nmap <Leader>ñ :NERDTreeToggle<CR>
+nmap <leader>ñ :Neotree toggle<CR>
+"nmap <leader>ñ :NvimTreeToggle<CR>
+nmap <leader>fb :Telescope file_browser<CR>
 "abrir y cerrar el mini mapa
 nmap <leader>mm :MinimapToggle<CR>
 "abrir el analizador de clases
@@ -95,6 +105,10 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+"inoremap <silent><expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "mostrar sugerencias
 if has('nvim')
@@ -150,7 +164,18 @@ nmap <silent> <C-n> <Plug>(coc-cursors-position)
 nmap <silent> <C-d> <Plug>(coc-cursors-word)
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 " use normal command like `<leader>xi(`
-nmap <leader>x  <Plug>(coc-cursors-operator)
+"nmap <leader>x  <Plug>(coc-cursors-operator)
+
+"movimiento de mensaje flotante
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 "-----------Mapeos del depurador (VIMSPECTOR)--------------------
 "let g:vimspector_enable_mappings = 'HUMAN'
 let s:mapped = {}
