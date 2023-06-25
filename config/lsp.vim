@@ -38,6 +38,15 @@ endif
 
 set completeopt=menu,menuone,noselect
 lua << END
+
+
+vim.diagnostic.config({
+virtual_text = false
+})
+
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+
 --configuracion del diagnostico
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -63,10 +72,11 @@ local cmp = require'cmp'
 local luasnip = require 'luasnip'
 
 cmp.setup({
+
 formatting = {
         format = function(_, vim_item)
             local icons = {
-                Text = "",
+                Text = "󰊄",
                 Method = "",
                 Function = "",
                 Constructor = "",
@@ -82,7 +92,7 @@ formatting = {
                 Keyword = "",
                 Snippet = "",
                 Color = "",
-                File = "",
+                File = "",
                 Reference = "",
                 Folder = "",
                 EnumMember = "",
@@ -177,7 +187,7 @@ cmp.setup.filetype('gitcommit', {
 --})
 ---------------------------------------------------------------------------------
   -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   --  require('lspconfig')['csharp_ls'].setup {
   --	  capabilities = capabilities
@@ -200,6 +210,8 @@ vim.keymap.set('n', '<space>c', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 --renombrar variable
 vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+--diagnostico
+vim.keymap.set('n', '<space>a', vim.diagnostic.setloclist)
 
 require('dressing').setup({
   input = {
@@ -233,9 +245,9 @@ require('dressing').setup({
     min_width = { 20, 0.2 },
 
     -- Window transparency (0-100)
-    winblend = 10,
+    --winblend = 10,
     -- Change default highlight groups (see :help winhl)
-    winhighlight = "",
+    --winhighlight = "",
 
     -- Set to `false` to disable
     mappings = {
@@ -265,3 +277,4 @@ END
 
 "coleccion de snipers
 let g:vsnip_filetypes.ruby = ['rails']
+
