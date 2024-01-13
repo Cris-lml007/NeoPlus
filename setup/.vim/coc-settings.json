@@ -1,0 +1,6 @@
+{
+  "Lua.workspace.library": [
+    "${3rd}/luv/library",
+    "/home/metallica/.local/share/nvim/lazy/nui.nvim/lua"
+  ]
+}

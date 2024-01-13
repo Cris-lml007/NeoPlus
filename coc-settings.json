@@ -1,88 +1,34 @@
 {
-	"coc.preferences.enableMessageDialog":true,
-	"suggest.noselect": true,
-	"diagnostic.errorSign": "✘",
-	"diagnostic.hintSign":"",
-	"diagnostic.infoSign":"",
-	"languageserver": {
-		"intelephense": {
-			"command": "intelephense",
-			"args": ["--stdio"],
-			"filetypes": ["php"],
-			"initializationOptions": {
-				"storagePath": "/tmp/intelephense"
-			}
-		},
-		"haskell": {
-			"command": "haskell-language-server-wrapper",
-			"args": [
-				"--lsp"
-			],
-			"rootPatterns": [
-				".stack.yaml",
-				".hie-bios",
-				"BUILD.bazel",
-				"cabal.config",
-				"package.yaml"
-			],
-			"filetypes": [
-				"hs",
-				"lhs",
-				"haskell"
-			]
-		},
-		"efm": {
-			"command": "~/go/bin/efm-langserver",
-			"args": [],
-			"filetypes": ["vim", "eruby", "markdown", "yaml"]
-		},
-		"godot": {
-			"host": "127.0.0.1",
-			"filetypes": ["gd", "gdscript", "gdscript3"],
-			"port": 6008
-		},
-		"csharp": {
-			"command": "~/.dotnet/tools/csharp-ls",
-			"rootPatterns": [
-				"*.csproj",
-				"*.sln",
-				"git"
-			],
-			"filetypes": ["cs", "csharp"]
-		}
-	},
-	"suggest.completionItemKindLabels": {
-		"text" : "󰊄",
-		"method" : "",
-		"function" : "󰊕",
-		"constructor" : "",
-		"field" : "",
-		"variable" : "󰀫",
-		"class" : "",
-		"interface" : "",
-		"module" : "",
-		"property" : "",
-		"unit" : "",
-		"value" : "󰎠",
-		"enum" : "",
-		"keyword" : "󰌋",
-		"snippet" : "",
-		"color" : "",
-		"file" : "",
-		"reference" : "",
-		"folder" : "",
-		"constant" : "",
-		"struct" : "",
-		"event" : "",
-		"operator" : "",
-		"default": "\uf29c"
-	},
-	"java.completion.maxResults":100,
-	"java.errors.incompleteClasspath.severity": "ignore",
-	"java.format.settings.url": "/home/metallica/.config/coc/extensions/node_modules/redhat.java/home/metallica/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
-	"xml.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
-	"snippets.extends": {
-		"php":["html","css","blade"]
-	},
-	"diagnostic.messageDelay": 1
+    "coc.preferences.enableMessageDialog":true,
+    "suggest.noselect": true,
+    "diagnostic.errorSign": "✘",
+    "diagnostic.hintSign":"",
+    "diagnostic.infoSign":"",
+    "suggest.completionItemKindLabels": {
+        "text" : "󰊄",
+        "method" : "",
+        "function" : "󰊕",
+        "constructor" : "",
+        "field" : "",
+        "variable" : "󰀫",
+        "class" : "",
+        "interface" : "",
+        "module" : "",
+        "property" : "",
+        "unit" : "",
+        "value" : "󰎠",
+        "enum" : "",
+        "keyword" : "󰌋",
+        "snippet" : "",
+        "color" : "",
+        "file" : "",
+        "reference" : "",
+        "folder" : "",
+        "constant" : "",
+        "struct" : "",
+        "event" : "",
+        "operator" : "",
+        "default": "\uf29c"
+    },
+    "diagnostic.messageDelay": 1
 }
