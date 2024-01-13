@@ -1,5 +1,5 @@
 local dirSetup=vim.fn.stdpath('config')..'/setup/'
-vim.api.nvim_command('mkdir '..vim.fn.stdpath('data')..'/session')
+vim.api.nvim_command('!mkdir '..vim.fn.stdpath('data')..'/session')
 
 local message={
     "",
@@ -57,7 +57,7 @@ function run()
         width=width,
         height=height
     })
-    vim.api.nvim_command('rm -r '..dirSetup)
+    vim.api.nvim_command('!rm -r '..dirSetup)
     vim.api.nvim_set_keymap('n','<CR>',':q!<CR>:q!<CR>',{})
 end
 

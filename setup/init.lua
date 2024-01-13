@@ -1,1 +1,1 @@
-require('window')
+require('setup.window')
