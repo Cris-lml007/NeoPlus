@@ -29,7 +29,7 @@ This es an secuence de config and plugins that do easy use to Neovim, with short
 # ⚒️ Install
 clone repository:
 ```
-git clone https://github.com/Cris-lml007/NeoPlus.git && mv ./NeoPlus/* ~/.config/nvim/ -r && cd ~/.config/nvim/ && nvim -u setup/init.lua
+git clone https://github.com/Cris-lml007/NeoPlus.git && mv ./NeoPlus/* ~/.config/nvim/ && cd ~/.config/nvim/ && nvim -u setup/init.lua
 ```
 # ⌨️ Mappings
 - `space` key leader
