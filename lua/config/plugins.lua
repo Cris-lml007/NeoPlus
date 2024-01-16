@@ -14,7 +14,7 @@ require("lazy").setup({
     },{
         "nvim-telescope/telescope-file-browser.nvim"
     },{
-        "nvim-telescope/telescope-project.nvim"
+        "ahmedkhalf/project.nvim"
     },{
         'Cris-lml007/startup.nvim'
     },{
