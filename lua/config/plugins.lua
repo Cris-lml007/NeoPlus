@@ -7,7 +7,37 @@ require("lazy").setup({
         lazy = false,
         priority = 1000,
         opts = {},
+    },{
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',      -- fuente para LSP
+            'hrsh7th/cmp-buffer',        -- fuente para buffer actual
+            'hrsh7th/cmp-path',          -- completar rutas
+            'hrsh7th/cmp-cmdline',       -- completar comandos
+            'L3MON4D3/LuaSnip',          -- motor de snippets
+            'saadparwaiz1/cmp_luasnip',  -- snippets para cmp
+        }
+    },{
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
@@ -71,10 +101,11 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
         }
     },{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
+    -- {
+    --     'neoclide/coc.nvim',
+    --     branch='release'
+    -- },
     {
-        'neoclide/coc.nvim',
-        branch='release'
-    },{
         'nvim-treesitter/nvim-treesitter'
     },{
         'Cris-lml007/shelf.nvim',
