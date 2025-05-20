@@ -10,13 +10,18 @@ require("lazy").setup({
     },{
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp',      -- fuente para LSP
-            'hrsh7th/cmp-buffer',        -- fuente para buffer actual
-            'hrsh7th/cmp-path',          -- completar rutas
-            'hrsh7th/cmp-cmdline',       -- completar comandos
-            'L3MON4D3/LuaSnip',          -- motor de snippets
-            'saadparwaiz1/cmp_luasnip',  -- snippets para cmp
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'saadparwaiz1/cmp_luasnip',
         }
+    },{
+        'L3MON4D3/LuaSnip',
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
     },{
         "mason-org/mason-lspconfig.nvim",
         opts = {},
@@ -24,20 +29,16 @@ require("lazy").setup({
             { "mason-org/mason.nvim", opts = {} },
             "neovim/nvim-lspconfig",
         },
+    },{
+        "hedyhli/outline.nvim",
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        keys = {
+            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+        },
+        opts = {
+        },
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
@@ -101,10 +102,6 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
         }
     },{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
-    -- {
-    --     'neoclide/coc.nvim',
-    --     branch='release'
-    -- },
     {
         'nvim-treesitter/nvim-treesitter'
     },{
