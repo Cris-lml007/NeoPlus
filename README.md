@@ -11,11 +11,11 @@
 Convert your Neovim an IDE.  
 This es an secuence de config and plugins that do easy use to Neovim, with shortcuts simples and modifiable.  
 # 🧰 Requirements  
-- Neovim 0.7.2 or 0.8  
+- Neovim 0.10+
 - g++
 - nodejs
 # ✔️ List Plugins  
-- COC
+- COC or LSP(nvim 0.11+)
 - Neo-Tree
 - Lualine
 - Bufferline
@@ -27,10 +27,17 @@ This es an secuence de config and plugins that do easy use to Neovim, with short
 - Tagbar
 - more
 # ⚒️ Install
+## coc.nvim
 clone repository:
 ```
-git clone https://github.com/Cris-lml007/NeoPlus.git && mv ./NeoPlus/* ~/.config/nvim/ && cd ~/.config/nvim/ && nvim -u setup/init.lua
+git clone -b main https://github.com/Cris-lml007/NeoPlus.git && mv ./NeoPlus/* ~/.config/nvim/ && cd ~/.config/nvim/ && nvim -u setup/init.lua
 ```
+## LSP
+clone repository:
+```
+git clone -b lsp https://github.com/Cris-lml007/NeoPlus.git && mv ./NeoPlus/* ~/.config/nvim/ && cd ~/.config/nvim/ && nvim -u setup/init.lua
+```
+
 # ⌨️ Mappings
 - `space` key leader
 - `q` exit
