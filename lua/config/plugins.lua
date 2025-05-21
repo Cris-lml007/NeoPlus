@@ -38,8 +38,19 @@ require("lazy").setup({
         },
         opts = {
         },
-    },
-    {
+    },{
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true,
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
+    },{
+        "ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
+        opts = {
+            -- cfg options
+        },
+    },{
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },{
